@@ -1,0 +1,22 @@
+logging:
+    level:
+        org:
+            hibernate: ERROR
+            springframework:
+                web: DEBUG
+        root: WARN
+spring:
+    datasource:
+        driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        password: success12!#
+        url: jdbc:sqlserver://localhost;databaseName=medikart
+        username: sa
+    jpa:
+        hibernate:
+            ddl-auto: update
+            dialect: org.hibernate.dialect.SQLServer2012Dialect
+        show-sql: true
+    mvc:
+        view:
+            prefix: WEB-INF/jspa/
+            suffix: .jsp
