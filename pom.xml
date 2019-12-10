@@ -70,16 +70,7 @@
     <scope>provided</scope>
 </dependency>
 
-<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/sqljdbc42 -->
-<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/sqljdbc4 -->
-<dependency>
-    <groupId>com.microsoft.sqlserver</groupId>
-    <artifactId>sqljdbc4</artifactId>
-    <version>4.0</version>
-    <scope>test</scope>
-</dependency>
-
-   
+  
 <dependency>
 		    <groupId>javax.servlet</groupId>
 		    <artifactId>javax.servlet-api</artifactId>
