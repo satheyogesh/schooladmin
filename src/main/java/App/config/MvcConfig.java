@@ -55,8 +55,8 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     public DriverManagerDataSource dataSource() {
  	   DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
  	   driverManagerDataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
- 	   driverManagerDataSource.setUrl("jdbc:sqlserver://localhost;databaseName=medikart");
- 	   driverManagerDataSource.setUsername("sa");
+ 	   driverManagerDataSource.setUrl("jdbc:sqlserver://database-1.crotnk9kagij.us-east-1.rds.amazonaws.com;databaseName=medikart");
+ 	   driverManagerDataSource.setUsername("awsrdsadmin");
  	   driverManagerDataSource.setPassword("success12!#");
  	   return driverManagerDataSource;
     }
