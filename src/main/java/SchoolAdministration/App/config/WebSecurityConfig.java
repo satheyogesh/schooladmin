@@ -1,4 +1,4 @@
-package App.config;
+package SchoolAdministration.App.config;
 
 import javax.sql.DataSource;
 

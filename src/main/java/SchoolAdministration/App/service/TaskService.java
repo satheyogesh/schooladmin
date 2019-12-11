@@ -1,4 +1,4 @@
-package App.service;
+package SchoolAdministration.App.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
-import App.taskdao.TaskRepository;
-import App.userinfo.data;
+import SchoolAdministration.App.taskdao.TaskRepository;
+import SchoolAdministration.App.userinfo.data;
 
 @Service
 @Transactional

@@ -1,4 +1,4 @@
-package App.userinfo;
+package SchoolAdministration.App.userinfo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

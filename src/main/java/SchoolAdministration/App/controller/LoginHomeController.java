@@ -1,4 +1,4 @@
-package App.controller;
+package SchoolAdministration.App.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,9 +15,10 @@ public class LoginHomeController {
 		return "loginHome";
 	}
 	
-	@GetMapping("/")
-	public String defaultpage(ModelMap model)
+/*	@GetMapping("/")
+	public String home(HttpServletRequest request )
 	{
-		return "login";
+		return "loginHome";
 	}
+	*/
 }

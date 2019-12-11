@@ -1,4 +1,4 @@
-package App.config;
+package SchoolAdministration.App.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/home").setViewName("home");
-        registry.addViewController("/").setViewName("home");
+      //  registry.addViewController("/").setViewName("home");
         registry.addViewController("/hello").setViewName("hello");
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/newstudent").setViewName("newstudent");
@@ -32,7 +32,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/updatebatch").setViewName("batch");
         registry.addViewController("/deletebatch").setViewName("batch");
         
-        registry.addViewController("/loginHome").setViewName("LoginHome");
+        registry.addViewController("/loginHome").setViewName("loginHome");
         registry.addViewController("/updateorder").setViewName("updateorder");
  
         registry.addViewController("/all-tasks").setViewName("index");

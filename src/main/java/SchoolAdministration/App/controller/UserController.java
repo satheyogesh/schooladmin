@@ -1,4 +1,4 @@
-package App.controller;
+package SchoolAdministration.App.controller;
 
 import java.util.Date;
 
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import App.service.UserService;
-import App.userinfo.User;
-import App.userinfo.data;
+import SchoolAdministration.App.service.UserService;
+import SchoolAdministration.App.userinfo.User;
+import SchoolAdministration.App.userinfo.data;
 
 @Controller
 public class UserController {

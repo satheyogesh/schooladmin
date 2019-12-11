@@ -1,8 +1,8 @@
-package App.taskdao;
+package SchoolAdministration.App.taskdao;
 
 import org.springframework.data.repository.CrudRepository;
 
-import App.userinfo.data;
+import SchoolAdministration.App.userinfo.data;
 
 public interface TaskRepository extends CrudRepository<data, Long>{
 

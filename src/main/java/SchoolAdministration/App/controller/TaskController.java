@@ -1,4 +1,4 @@
-package App.controller;
+package SchoolAdministration.App.controller;
 
 import java.util.Date;
 
@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import App.service.TaskService;
-import App.userinfo.User;
-import App.userinfo.data;
+import SchoolAdministration.App.service.TaskService;
+import SchoolAdministration.App.userinfo.User;
+import SchoolAdministration.App.userinfo.data;
 
 @Controller
 public class TaskController {

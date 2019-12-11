@@ -1,4 +1,4 @@
-package App.userinfo;
+package SchoolAdministration.App.userinfo;
 
 import java.io.Serializable;
 import java.util.Date;

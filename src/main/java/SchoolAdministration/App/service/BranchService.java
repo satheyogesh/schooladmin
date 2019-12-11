@@ -5,7 +5,7 @@
  * @author ysathe
  *
  */
-package App.service;
+package SchoolAdministration.App.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import App.taskdao.*;
-import App.userinfo.*;
+import SchoolAdministration.App.taskdao.*;
+import SchoolAdministration.App.userinfo.*;
 
 @Service
 public class BranchService {

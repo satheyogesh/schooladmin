@@ -1,4 +1,4 @@
-package App.controller;
+package SchoolAdministration.App.controller;
 
 import javax.validation.Valid;
 
@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import App.service.*;
-import App.userinfo.Batch;
+
+import SchoolAdministration.App.service.*;
+import SchoolAdministration.App.userinfo.Batch;
 
 @Controller
 public class BatchController {

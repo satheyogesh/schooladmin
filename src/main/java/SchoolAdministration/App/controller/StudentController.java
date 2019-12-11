@@ -1,4 +1,4 @@
-package App.controller;
+package SchoolAdministration.App.controller;
 
 import java.text.ParseException;
 
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import App.userinfo.Student;
-import App.service.*;
+import SchoolAdministration.App.service.*;
+import SchoolAdministration.App.userinfo.Student;
 
 @Controller
 public class StudentController {
