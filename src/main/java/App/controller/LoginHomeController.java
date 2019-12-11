@@ -15,4 +15,9 @@ public class LoginHomeController {
 		return "loginHome";
 	}
 	
+	@GetMapping("/")
+	public String defaultpage(ModelMap model)
+	{
+		return "login";
+	}
 }
