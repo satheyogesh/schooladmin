@@ -1,5 +1,6 @@
 package SchoolAdministration.App.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import SchoolAdministration.App.service.TaskService;
 import SchoolAdministration.App.userinfo.User;
-import SchoolAdministration.App.userinfo.data;
+import SchoolAdministration.App.userinfo.Tasks;
 
 @Controller
 public class TaskController {
@@ -55,25 +56,32 @@ public class TaskController {
 	@GetMapping("/new-task")
 	public String newTask(HttpServletRequest request)
 	{
+		request.setAttribute("tasks", taskService.findAll());
 		request.setAttribute("mode", "MODE_NEW");
 		return "tasks";
 	}
 	
 	@PostMapping("/save-task")
-	public String saveTask(@ModelAttribute data d, BindingResult bindingResult, HttpServletRequest request)
+	public String saveTask(@ModelAttribute Tasks d, BindingResult bindingResult, HttpServletRequest request)
 	{
-		d.setDate(new Date());
+		//d.setDate(new Date());
 		taskService.save(d);
-		
 		request.setAttribute("tasks", taskService.findAll());
 		request.setAttribute("mode", "MODE_TASKS");
-		return "tasks";
+		return "redirect:/all-tasks";
 	}
 	
 	@GetMapping("/update-task")
 	public String updateTask(@RequestParam long id, HttpServletRequest request)
 	{
-		request.setAttribute("tasks", taskService.findTask(id));
+		Tasks tk = taskService.findTask(id);
+		request.setAttribute("taskObj",tk );
+
+		String pattern = "MM/dd/yyyy";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+		String date = simpleDateFormat.format(tk.getDt());
+		
+		request.setAttribute("parsedTaskDate",date);
 		request.setAttribute("mode", "MODE_UPDATE");
 		return "tasks";
 	}

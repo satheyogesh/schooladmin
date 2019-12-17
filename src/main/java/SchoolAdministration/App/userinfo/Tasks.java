@@ -14,31 +14,36 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "t_tasks")
-
-public class data implements Serializable {
+@Table(name = "tasks")
+public class Tasks implements Serializable {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	
-	//@ManyToOne
-	private String name;
-	
+	//@Temporal(TemporalType.DATE)
+	private Date dt;
+		
 	private String task;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date date;
+
 	private boolean finished;
 
-	public data() {
+	public Tasks() {
 	}
 
-	public data(String name, String task, Date date, boolean finished) {
+	public Tasks(String name, String task, Date date, boolean finished) {
 		super();
-		this.name = name;
 		this.task = task;
-		this.date = date;
+		this.dt = date;
 		this.finished = finished;
+	}
+
+	public Date getDt() {
+		return dt;
+	}
+
+	public void setDt(Date dt) {
+		this.dt = dt;
 	}
 
 	public long getId() {
@@ -49,22 +54,7 @@ public class data implements Serializable {
 		this.id = id;
 	}
 
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
+	
 	public boolean isFinished() {
 		return finished;
 	}
@@ -73,8 +63,7 @@ public class data implements Serializable {
 		this.finished = finished;
 	}
 
-	
-	
+		
 	public String getTask() {
 		return task;
 	}
@@ -85,7 +74,7 @@ public class data implements Serializable {
 
 	@Override
 	public String toString() {
-		return "data [t_id=" + id + ", name=" + name + ", Task=" + task + ", date=" + date + ", finished=" + finished
+		return "data [t_id=" + id + ", Task=" + task + ", date=" + dt + ", finished=" + finished
 				+ "]";
 	}
 

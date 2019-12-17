@@ -6,41 +6,41 @@ import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
-import SchoolAdministration.App.taskdao.TaskRepository;
-import SchoolAdministration.App.userinfo.data;
+import SchoolAdministration.App.taskdao.TasksRepository;
+import SchoolAdministration.App.userinfo.Tasks;
 
 @Service
 @Transactional
 public class TaskService {
 	
-	private final TaskRepository taskRepository;
+	private final TasksRepository tasksRepository;
 	
-	public TaskService(TaskRepository taskRepository)
+	public TaskService(TasksRepository tasksRepository)
 	{
-		this.taskRepository=taskRepository;
+		this.tasksRepository=tasksRepository;
 	}
 
-	public List<data> findAll(){
-		List<data> tasks = new ArrayList<data>();
-		for(data d: taskRepository.findAll())
+	public List<Tasks> findAll(){
+		List<Tasks> tasks = new ArrayList<Tasks>();
+		for(Tasks d: tasksRepository.findAll())
 		{
 			tasks.add(d);
 		}
 		return tasks;
 	}
 	
-	public data findTask(long id)
+	public Tasks findTask(long id)
 	{
-		return taskRepository.findOne(id);
+		return tasksRepository.findOne(id);
 	}
 	
-	public void save(data d)
+	public void save(Tasks d)
 	{
-		taskRepository.save(d);
+		tasksRepository.save(d);
 	}
 	
 	public void delete(long id)
 	{
-		taskRepository.delete(id);
+		tasksRepository.delete(id);
 	}
 }

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import SchoolAdministration.App.service.UserService;
 import SchoolAdministration.App.userinfo.User;
-import SchoolAdministration.App.userinfo.data;
+import SchoolAdministration.App.userinfo.Tasks;
 
 @Controller
 public class UserController {
