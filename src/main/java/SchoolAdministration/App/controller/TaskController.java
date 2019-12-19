@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import SchoolAdministration.App.service.TaskService;
 import SchoolAdministration.App.userinfo.User;
+import SchoolAdministration.CronJob.ScheduledTasks;
 import SchoolAdministration.App.userinfo.Tasks;
 
 @Controller
@@ -56,6 +57,7 @@ public class TaskController {
 	@GetMapping("/new-task")
 	public String newTask(HttpServletRequest request)
 	{
+		
 		request.setAttribute("tasks", taskService.findAll());
 		request.setAttribute("mode", "MODE_NEW");
 		return "tasks";

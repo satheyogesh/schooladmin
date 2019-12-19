@@ -6,10 +6,13 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import SchoolAdministration.App.controller.TaskController;
 
+
 @SpringBootApplication
+@EnableScheduling
 @EnableAutoConfiguration
 @ComponentScan(basePackages= {"SchoolAdministration.App"})
 public class ToDoApplication {
