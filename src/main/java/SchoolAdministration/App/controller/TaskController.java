@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import SchoolAdministration.App.CronJob.ScheduledTasks;
 import SchoolAdministration.App.service.TaskService;
 import SchoolAdministration.App.userinfo.User;
-import SchoolAdministration.CronJob.ScheduledTasks;
 import SchoolAdministration.App.userinfo.Tasks;
 
 @Controller

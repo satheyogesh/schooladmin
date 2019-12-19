@@ -5,7 +5,7 @@
  * @author ysathe
  *
  */
-package SchoolAdministration.CronJob;
+package SchoolAdministration.App.CronJob;
 
 import java.sql.ResultSet;
 import java.util.Properties;
