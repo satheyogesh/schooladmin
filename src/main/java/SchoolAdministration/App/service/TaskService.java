@@ -22,10 +22,11 @@ public class TaskService {
 
 	public List<Tasks> findAll(){
 		List<Tasks> tasks = new ArrayList<Tasks>();
-		for(Tasks d: tasksRepository.findAll())
+		for(Tasks d: tasksRepository.findAllByOrderByDtDesc())
 		{
 			tasks.add(d);
 		}
+		
 		return tasks;
 	}
 	
