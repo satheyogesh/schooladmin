@@ -8,6 +8,7 @@
 package SchoolAdministration.App.CronJob;
 
 import java.sql.ResultSet;
+import java.util.Date;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -30,10 +31,34 @@ public class ScheduledTasks {
 	
 //	@Scheduled(cron = "0/20 * * * * ?")
 	
-	@Scheduled(fixedDelay = 2000)
+	@Scheduled(cron = "0 0 6/12 ? * * *")
 	public void scheduleTaskWithInitialDelay() {
-		System.out.println("Scheduled task running");
-		sendEmail("satheyogesh@gmail.com","Testing task");
+		try
+		{
+		SqlServerUtils sql = new SqlServerUtils();
+		//Connection con =  sql.connect();
+		ResultSet rs = sql.SelectData("SELECT * FROM tasks where finished = 0 order by dt desc");
+
+		while (rs.next()) 
+		 {
+		            Date date = rs.getDate("dt");
+		            String  task = rs.getString("task");
+					
+					Date currentDate = new Date();
+
+				if (currentDate.compareTo(date) >= 0) {
+		            System.out.println("date is after currentDate");
+		    		System.out.println("Scheduled task running");
+		    		sendEmail("satheyogesh@gmail.com",task);
+		        }
+		}
+
+		
+
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+		}
 	}
 	
 	
@@ -74,8 +99,8 @@ public class ScheduledTasks {
 				generateMailMessage = new MimeMessage(getMailSession);
 				generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(sendEmailTo));
 				generateMailMessage.addRecipient(Message.RecipientType.CC, new InternetAddress("satheyogesh@hotmail.com"));
-				generateMailMessage.setSubject("Reminder " + taskDesc);
-				String emailBody = "Reminder " + taskDesc;
+				generateMailMessage.setSubject("Reminder: " + taskDesc);
+				String emailBody = "Reminder:" + taskDesc;
 				generateMailMessage.setContent(emailBody, "text/html");
 				System.out.println("Mail Session has been created successfully..");
 		 
@@ -85,7 +110,7 @@ public class ScheduledTasks {
 		 
 				// Enter your correct gmail UserID and Password
 				// if you have 2FA enabled then provide App Specific Password
-				transport.connect("smtp.gmail.com", "", "");
+				transport.connect("smtp.gmail.com", "yogeshebooks@gmail.com", "");
 				transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
 				transport.close();
 				

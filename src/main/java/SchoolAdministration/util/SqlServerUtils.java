@@ -43,7 +43,7 @@ import java.sql.Statement;
 
         if(connectionUrl==null) {
         	
-        	connectionUrl = "jdbc:sqlserver://database-1.crotnk9kagij.us-east-1.rds.amazonaws.com;databaseName=medikart";
+        	connectionUrl = "jdbc:sqlserver://database-1.crotnk9kagij.us-east-1.rds.amazonaws.com;databaseName=medikart;user=awsrdsadmin;password=success12!#";
             //connectionUrl = TestProperties.getValue("WOISqlServerConnectionString");
         }
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -92,7 +92,7 @@ import java.sql.Statement;
         {
             con = connect();
             stmt = con.createStatement();
-            stmt.setFetchSize(Integer.parseInt(/*TestProperties.getValue("dbCassendraMaxResultSetSize")*/""));
+            stmt.setFetchSize(Integer.parseInt(/*TestProperties.getValue("dbCassendraMaxResultSetSize")*/"100"));
             rs = stmt.executeQuery(query);
 
         }
