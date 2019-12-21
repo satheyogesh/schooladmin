@@ -157,7 +157,11 @@
 		<c:if test="${not empty batchobj.batchid}">
 			<input type="hidden" name="batchid" value="${batchobj.batchid}"/>
 		</c:if>
-	  	
+
+	  		<c:if test="${not empty batchobj.branchId}">
+        			<input type="hidden" name="branchId" value="${batchobj.branchId}"/>
+        		</c:if>
+
  				<div class="form-group"> 
 						</div>				 
 <!-- 					</div> -->
@@ -165,9 +169,19 @@
 		     <div class="form-group">
 		      <label >Batch Name:</label>
 		      <input  type="text" class="form-control"  placeholder="Enter  Batch Name" name="batchName" value="${batchobj.batchName}"/>
-		      
-
 		    </div>
+
+		       <div class="form-group">
+		       <label>Branch</label>
+
+            			    <select name="branchId" class="form-control">
+                                <c:forEach items="${listBranch}" var="branch">
+                                    <option value="${branch.branchId}">${branch.branchName}</option>
+                                </c:forEach>
+                            </select>
+               </div>
+
+
 		    <div class="form-group">
 		      <label >Batch Description:</label>
 		      <input type="text" class="form-control"  placeholder="Enter Batch Description" name="batchDesc" value="${batchobj.batchDesc}">

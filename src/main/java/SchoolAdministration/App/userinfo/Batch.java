@@ -17,10 +17,14 @@ import org.springframework.stereotype.Component;
 @Table(name = "batch_table")
 public class Batch implements Serializable 
 {
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long  batchid;
-	
+
+	private Long  branchId;
+
 	@NotEmpty(message ="{batch.name.empty}")
     @Size(min=0, max=50,message ="{batch.name.length}")
 	private String batchName;
@@ -51,13 +55,31 @@ public class Batch implements Serializable
    @NotEmpty(message ="{batch.maxage.empty}")
    @Size(min=0, max=2,message ="{batch.maxage.length}")
 	private String maxAge;
-    
-	public long getBatchid() {
+
+   private Long fees;
+
+   private int totalStudent;
+
+	public Long getBatchid()
+	{
 		return batchid;
 	}
-	public void setBatchid(long batchid) {
+
+	public void setBatchid(Long batchid)
+	{
 		this.batchid = batchid;
 	}
+
+	public Long getBranchId()
+	{
+		return branchId;
+	}
+
+	public void setBranchId(Long branchId)
+	{
+		this.branchId = branchId;
+	}
+
 	public String getBatchName() {
 		return batchName;
 	}
@@ -107,5 +129,25 @@ public class Batch implements Serializable
 		this.maxAge = maxAge;
 	}
 
-	
+
+
+	public Long getFees()
+	{
+		return fees;
+	}
+
+	public void setFees(Long fees)
+	{
+		this.fees = fees;
+	}
+
+	public int getTotalStudent()
+	{
+		return totalStudent;
+	}
+
+	public void setTotalStudent(int totalStudent)
+	{
+		this.totalStudent = totalStudent;
+	}
 }

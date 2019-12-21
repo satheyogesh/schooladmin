@@ -22,6 +22,9 @@ public class BatchController {
 	@Autowired
 	private BatchService service;
 
+	@Autowired
+	private BranchService branchService;
+
 	@GetMapping("/batchList")	
 	public String home(ModelMap model )
 	{
@@ -33,9 +36,10 @@ public class BatchController {
 	@RequestMapping(value="/batch", method = RequestMethod.GET)
 	public String createBatch(ModelMap model){
 
-			model.addAttribute("batchList", service.findAll());
-			model.addAttribute("mode", "MODE_NEW");
-			return "batch";
+		model.addAttribute("listBranch", branchService.findAll());
+		model.addAttribute("batchList", service.findAll());
+		model.addAttribute("mode", "MODE_NEW");
+		return "batch";
 	
 	}
 	
