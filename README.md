@@ -1,2 +1,2 @@
 # schooladmin
-Course Administration System developed in Java Springboot
+Course Administration System developed in Java Spring boot
