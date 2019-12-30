@@ -16,6 +16,15 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+  
+  function buttonClick(){
+	  var branchDropDown = document.getElementById("branchIdDropDown");
+	    window.alert(branchDropDown.options[branchDropDown.selectedIndex].value);
+	    document.getElementById('branchIdHidden').value = branchDropDown.options[branchDropDown.selectedIndex].value;
+	}
+  
+  </script>
 </head>
   <style>
   .error {
@@ -150,7 +159,7 @@
 					</c:forEach>
     	</spring:hasBindErrors>
     	
-    	<c:if test="${empty batchobj.batchid}">
+     	<c:if test="${empty batchobj.batchid}">
 		  	<input type="hidden" name="batchid" value="1"/>
 		</c:if>
 		
@@ -159,7 +168,7 @@
 		</c:if>
 
 	  		<c:if test="${not empty batchobj.branchId}">
-        			<input type="hidden" name="branchId" value="${batchobj.branchId}"/>
+        			<input type="hidden" id="branchIdHidden" name="branchId" value="${batchobj.branchId}"/>
         		</c:if>
 
  				<div class="form-group"> 
@@ -174,11 +183,22 @@
 		       <div class="form-group">
 		       <label>Branch</label>
 
-            			    <select name="branchId" class="form-control">
+				  <%--   	<c:if test="${mode == 'MODE_NEW'}">
+  								<select name="branchId" class="form-control">
                                 <c:forEach items="${listBranch}" var="branch">
                                     <option value="${branch.branchId}">${branch.branchName}</option>
                                 </c:forEach>
-                            </select>
+                            </select>						
+                        </c:if>
+		
+		  		<c:if test="${mode == 'MODE_UPDATE'}"> --%>
+  								<select name="branchId" class="form-control" id="branchIdDropDown">
+                                <c:forEach items="${listBranch}" var="branch">
+                                    <option value="${branch.branchId}"  ${not empty batchobj.branchId && batchobj.branchId eq branch.branchId ? 'selected' : ''}>${branch.branchName}</option>
+                                </c:forEach>
+                            </select>						
+<%--                         </c:if> --%>
+            			  
                </div>
 
 
@@ -214,7 +234,7 @@
 <!-- 		     <button type="submit" class="btn btn-default">Submit</button> -->
 <!-- 		     <button type="button" class="btn btn-default">Cancel</button> -->
 
-<input type="submit" class="button" name="save" value="save"/>
+<input type="submit" class="button" name="save" value="save" onclick="buttonClick();"/>
 <input type="submit" class="button" name="cancel" value="cancel"/>
 		     		<input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}" />

@@ -87,6 +87,8 @@ public class BatchController {
 		Batch s = service.findOne(batchid);
 		model.addAttribute("batchobj",s);
 		model.addAttribute("mode", "MODE_UPDATE");
+		model.addAttribute("listBranch", branchService.findAll());
+
 		return "batch";
 	}
 	
